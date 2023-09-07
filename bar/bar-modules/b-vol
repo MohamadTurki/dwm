@@ -1,0 +1,25 @@
+#!/bin/sh
+
+. ~/suckless/dwmblocks/theme-selector
+
+vol=$(pamixer --get-volume)
+muted=$(printf "  ^c#C9A586^ MUTED ")
+if [ "$(pamixer --get-mute)" == "true" ]; then
+  echo $muted
+  exit
+fi
+# 󰖁 for mute
+case 1 in
+	$((vol >= 70)) ) icon="";;
+	$((vol >= 30)) ) icon="";;
+	$((vol >= 1)) )  icon="";;
+	* ) echo $muted
+esac
+
+# printf "^b#6B76BA^ $icon "
+echo "   ^c$yellow^ $icon $vol%   "
+# case 1 in
+# 	$((vol > 95)) ) echo  ;;
+# 	$((vol > 5)) ) echo "  ^c#C9A586^ $icon $vol%  " ;;
+# 	$((vol >= 1)) )  echo "   ^c#C9A586^ $icon $vol%  " ;;
+# esac

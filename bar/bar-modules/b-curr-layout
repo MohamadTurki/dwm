@@ -1,0 +1,12 @@
+#! /bin/sh
+
+. ~/suckless/dwmblocks/theme-selector
+
+
+curr_layout=$(setxkbmap -query | grep layout | awk '{print $2}' | tr '[:lower:]' '[:upper:]')
+
+if [ "$curr_layout" = "ARA" ]; then
+  curr_layout="AR"
+fi
+
+echo "^c$cyan^ 󰌌 $curr_layout "

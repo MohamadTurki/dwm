@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. ~/suckless/dwmblocks/theme-selector
+
+cupd=$(checkupdates | wc -l)
+echo " ^c$orange^  $cupd"

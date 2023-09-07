@@ -1,0 +1,52 @@
+! special
+*.foreground:   #e0def4
+*.background:   #191724
+*.cursorColor:  #e0def4
+
+! black
+*.color0:       #1f1d2e
+*.color8:       #26233a
+
+! red
+*.color1:       #eb6f92
+*.color9:       #eb6f92
+
+! green
+*.color2:       #f6c177
+*.color10:      #f6c177
+
+! yellow
+*.color3:       #ebbcba
+*.color11:      #ebbcba
+
+! blue
+*.color4:       #bd93f9
+*.color12:      #bd93f9
+
+! magenta
+*.color5:       #c4a7e7
+*.color13:      #c4a7e7
+
+! cyan
+*.color6:       #8B03F2
+*.color14:      #8B03F2
+
+! white
+*.color7:       #6e6a86
+*.color15:      #908caa
+
+dmenu.background: #071217
+dmenu.selforeground: #CACFA7
+dmenu.selbackground: #3303DB
+dmenu.font: "JetBrainsMono Nerd Font Mono:pixelsize=16:antialias=true:autohint=true"
+
+dwm.normbordercolor: #1C1C1C
+dwm.normbgcolor: #071217
+dwm.normfgcolor: #CACFA7
+dwm.selbordercolor: #CACFA7
+dwm.selbgcolor: #92936B
+dwm.selfgcolor: #1E1E2E
+dwm.tagsnormbgcolor: #071217
+dwm.tagsnormfgcolor: #CACFA7
+dwm.tagsselbgcolor: #3303DB
+dwm.tagsselfgcolor: #CACFA7

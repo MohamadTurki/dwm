@@ -1,0 +1,30 @@
+#!/bin/sh
+
+
+# date="$(date "+%d %B (%a) %l:%M%p")" echo "^c#bd93f9^ ${date}"
+clock=$(date '+%I')
+date=$(date '+%H:%M, ')
+. ~/suckless/dwmblocks/theme-selector
+
+case "$clock" in
+	"00") icon="󱑊" ;;
+	"01") icon="󱐿" ;;
+	"02") icon="󱑀" ;;
+	"03") icon="󱑁" ;;
+	"04") icon="󱑂" ;;
+	"05") icon="󱑃" ;;
+	"06") icon="󱑄" ;;
+	"07") icon="󱑅" ;;
+	"08") icon="󱑆" ;;
+	"09") icon="󱑇" ;;
+	"10") icon="󱑈" ;;
+	"11") icon="󱑉" ;;
+	"12") icon="󱑊" ;;
+esac
+
+# printf "^c#1e222a^ ^b#668ee3^ 󱑆 "
+# printf "^c#1e222a^^b#668ee3^ $(date '+%H:%M')  "
+# printf "^c#2B313Ab#818CD0^ $icon "
+# printf "^b#6B76BA^ $(date "+%I:%M%p") "
+# printf "$(date "+%b %d %a")"
+printf "^c$black^ ^b$pink^ $icon ^b$dark_pink^ $date"

@@ -1,0 +1,14 @@
+#! /bin/sh
+
+. ~/suckless/dwmblocks/theme-selector
+
+check_internet() {
+    if ping -c 1 8.8.8.8 >/dev/null 2>&1; then
+        printf "^c$black^ ^b$red^ 󰤨 ^dc$red^ Connected "
+    else
+        printf "^c$black^ ^b$red^ 󰤭 ^dc$red^ Disconnected "
+    fi
+}
+
+check_internet
+
