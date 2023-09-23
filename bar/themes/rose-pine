@@ -1,6 +1,7 @@
 #! /bin/sh
 
 black=#232136
+white=#e0e0e0
 pink=#C4A7E7
 dark_pink=#AB91D5
 yellow=#f6c177

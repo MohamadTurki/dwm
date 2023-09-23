@@ -162,9 +162,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "FiraCode Nerd Font Mono:size=18";
+static const char font[]                 = "JetBrainsMono Nerd Font Propo:size=16";
 #else
-static const char *fonts[]               = { "FiraCode Nerd Font Mono:size=15" };
+static const char *fonts[]               = { "JetBrainsMono Nerd Font Propo:size=16" };
 #endif // BAR_PANGO_PATCH
 /* static const char dmenufont[]            = "FiraCode Nerd Font:size=12"; */
 /* static char *tags[] = {"", "", "", "", ""}; */
@@ -196,12 +196,12 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "FiraCode Nerd Font Mono:size=18";
+static const char font[]                 = "JetBrainsMono Nerd Font Propo:size=16";
 #else
 /* static const char *fonts[]               = { "JetBrains Mono Nerd Font:size=16" }; */
 static const char *fonts[]               = { "JetBrainsMono Nerd Font Propo:size=16" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "FiraCode Nerd Font Mono:size=18";
+static const char dmenufont[]            = "JetBrainsMono Nerd Font Propo:size=16";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -439,7 +439,7 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 #if COOL_AUTOSTART_PATCH
 static const char *const autostart[] = {
   /* dwmblocks */
-	/* "dwmblocks", NULL, */
+	"dwmblocks", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -909,7 +909,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 
-static const char *termcmd[]  = { "st", "fish", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -918,9 +918,10 @@ static const char *termcmd[]  = { "st", "fish", NULL };
 #else
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static const StatusCmd statuscmds[] = {
-	{ "notify-send Volume$BUTTON", 1 },
-	{ "notify-send CPU$BUTTON", 2 },
-	{ "notify-send Battery$BUTTON", 3 },
+	{ "", 7 },
+	/* { "notify-send Volume$BUTTON", 1 }, */
+	/* { "notify-send CPU$BUTTON", 2 }, */
+	/* { "notify-send Battery$BUTTON", 3 }, */
 };
 /* test the above with: xsetroot -name "$(printf '\x01Volume |\x02 CPU |\x03 Battery')" */
 static const char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
@@ -949,7 +950,7 @@ static const Key keys[] = {
 	#endif // KEYMODES_PATCH
 //	{ MODKEY,                       XK_e,           spawn,                   {.v = filemanager } },
 	// { MODKEY,                       XK_d,           spawn,                   {.v = dmenucmd } },
-//	{ MODKEY,                       XK_Return,      spawn,                  {.v = termcmd } },
+	{ MODKEY|ControlMask|ShiftMask,                       XK_Return,      spawn,                  {.v = termcmd } },
 //	{ MODKEY,                       XK_s,           spawn,                   {.v = browser } },
 //  { 0,                  XF86XK_AudioLowerVolume,  spawn,                   {.v = voldowncmd } },
 //{ 0,                  XF86XK_AudioRaiseVolume,  spawn,                   {.v = volupcmd } },
@@ -1128,7 +1129,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
 	/* { MODKEY|ShiftMask,             XK_f,          setlayout,    {.v = &layouts[10]} }, */
-	{ MODKEY,                       XK_w,          setlayout,              {.v = &layouts[1]} },
+	/* { MODKEY,                       XK_w,          setlayout,              {.v = &layouts[1]} }, */
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
@@ -1143,8 +1144,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod5Mask|Mod1Mask,     XK_Tab,        rotatelayoutaxis,       {.i = -4 } },   /* flextile, 4 = secondary stack axis */
 	{ MODKEY|ControlMask,           XK_Return,     mirrorlayout,           {0} },          /* flextile, flip master and stack areas */
 	#endif // FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY,                       XK_space,      setlayout,              {0} },
-	{ MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} },
+	{ MODKEY,                       XK_w,      setlayout,              {0} },
+	{ MODKEY|ShiftMask,             XK_w,      togglefloating,         {0} },
 	#if MAXIMIZE_PATCH
 	{ MODKEY|ControlMask|ShiftMask, XK_h,          togglehorizontalmax,    {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_l,          togglehorizontalmax,    {0} },
@@ -1403,9 +1404,9 @@ static const Button buttons[] = {
 	#endif // BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
 	#if BAR_STATUSCMD_PATCH && BAR_DWMBLOCKS_PATCH
-	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
-	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
-	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
+	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 7 } },
+	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 7 } },
+	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 7 } },
 	#elif BAR_STATUSCMD_PATCH
 	{ ClkStatusText,        0,                   Button1,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = statuscmd } },

@@ -19,7 +19,7 @@ static int instant = 0;                     /* -n  option; if 1, selects matchin
 #endif // INSTANT_PATCH
 #if CENTER_PATCH
 static int center = 1;                      /* -c  option; if 0, dmenu won't be centered on the screen */
-static int min_width = 500;                 /* minimum width when centered */
+static int min_width = 1000;                 /* minimum width when centered */
 #endif // CENTER_PATCH
 #if BARPADDING_PATCH
 static const int vertpad = 10;              /* vertical padding of bar */
@@ -95,7 +95,7 @@ char *colors[][2] = {
 	[SchemeSel]  = { "#eeeeee", "#005577" },
 	[SchemeOut]  = { "#000000", "#00ffff" },
 	#if BORDER_PATCH
-	[SchemeBorder] = { "#000000", "#005577" },
+	[SchemeBorder] = { "#e0e0e0", "#e0e0e0" },
 	#endif // BORDER_PATCH
 	#if MORECOLOR_PATCH
 	[SchemeMid]  = { "#eeeeee", "#770000" },
@@ -123,8 +123,8 @@ static unsigned int lines      = 0;
 static unsigned int columns    = 0;
 #endif // GRID_PATCH
 #if LINE_HEIGHT_PATCH
-static unsigned int lineheight = 0;         /* -h option; minimum height of a menu line     */
-static unsigned int min_lineheight = 8;
+static unsigned int lineheight = 32;         /* -h option; minimum height of a menu line     */
+static unsigned int min_lineheight = 30;
 #endif // LINE_HEIGHT_PATCH
 #if NAVHISTORY_PATCH
 static unsigned int maxhist    = 15;
@@ -142,7 +142,7 @@ static const char worddelimiters[] = " ";
 
 #if BORDER_PATCH
 /* Size of the window border */
-static unsigned int border_width = 0;
+static unsigned int border_width = 1;
 #endif // BORDER_PATCH
 
 #if PREFIXCOMPLETION_PATCH
